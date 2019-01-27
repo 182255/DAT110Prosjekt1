@@ -7,6 +7,7 @@ import java.net.Socket;
 public class MessagingServer {
 
 	private ServerSocket welcomeSocket;
+	private Socket connectSocket;	
 
 	public MessagingServer(int port) {
 
@@ -28,10 +29,18 @@ public class MessagingServer {
 
 		// TODO
 		// accept TCP connection on welcome socket and create connection
-
-		if (true) {
-			throw new RuntimeException("not yet implemented");
+		try {
+			welcomeSocket.accept();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		connection = new Connection(connectSocket);
+		
+
+//		if (true) {
+//			throw new RuntimeException("not yet implemented");
+//		}
 
 		return connection;
 
