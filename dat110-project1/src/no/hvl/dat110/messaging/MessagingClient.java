@@ -1,8 +1,8 @@
 package no.hvl.dat110.messaging;
 
 import java.io.IOException;
-
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class MessagingClient {
 
@@ -23,9 +23,17 @@ public class MessagingClient {
 		// TODO
 		// create TCP socket for client and connection
 
-		if (true) {
-			throw new RuntimeException("not yet implemented");
+		try {
+			clientSocket = new Socket(server, port);
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+//		if (true) {
+//			throw new RuntimeException("not yet implemented");
+//		}
 
 		return connection;
 	}
