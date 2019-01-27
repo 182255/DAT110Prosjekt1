@@ -7,7 +7,7 @@ public class Message {
 	private byte[] payload;
 
 	public Message(byte[] payload) {
-		this.payload = payload; // TODO: check for length within boundary
+		this.payload = payload.toString().substring(0, 127).getBytes(); // TODO: check for length within boundary
 	}
 
 	public Message() {
@@ -15,30 +15,30 @@ public class Message {
 	}
 
 	public byte[] getData() {
-		return this.payload; 
+		return this.payload;
 	}
 
 	public byte[] encapsulate() {
-		
+
 		byte[] encoded;
-		
+
 		// TODO
 		// encapulate/encode the payload of the message
-		
+
 		if (true) {
-		   throw new RuntimeException("not yet implemented");
+			throw new RuntimeException("not yet implemented");
 		}
-		
+
 		return encoded;
-		
+
 	}
 
 	public void decapsulate(byte[] received) {
 
 		// TODO
 		// decapsulate data in received and put in payload
-		
-	   throw new RuntimeException("not yet implemented");
-		
+
+		throw new RuntimeException("not yet implemented");
+
 	}
 }
