@@ -6,26 +6,34 @@ public class RPCUtils {
 
 	public static byte[] marshallString(byte rpcid, String str) {
 
-		byte[] encoded;
+		byte[] encoded = new byte[str.length()];
+
+		encoded[0] = rpcid;
+		for (int i = 1; i < str.length() - 1; i++) {
+			encoded[i] = (byte) str.charAt(i);
+		}
 
 		// TODO: marshall RPC identifier and string into byte array
 
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
+//		if (true) {
+//			throw new RuntimeException("not yet implemented");
+//		}
 
 		return encoded;
 	}
 
 	public static String unmarshallString(byte[] data) {
 
-		String decoded;
+		String decoded = null;
 
 		// TODO: unmarshall String contained in data into decoded
-
-		if (true) {
-			throw new RuntimeException("not yet implemented");
+		for (int i = 1; i < data.length; i++) {
+//			data[i]
 		}
+
+//		if (true) {
+//			throw new RuntimeException("not yet implemented");
+//		}
 
 		return decoded;
 	}
