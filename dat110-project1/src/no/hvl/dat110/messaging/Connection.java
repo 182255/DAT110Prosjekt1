@@ -1,8 +1,10 @@
 package no.hvl.dat110.messaging;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class Connection {
@@ -17,9 +19,9 @@ public class Connection {
 
 			this.socket = socket;
 
-			outStream = new DataOutputStream(socket.getOutputStream());
-
 			inStream = new DataInputStream(socket.getInputStream());
+
+			outStream = new DataOutputStream(socket.getOutputStream());
 
 		} catch (IOException ex) {
 
@@ -32,9 +34,9 @@ public class Connection {
 
 		// TODO
 		// encapsulate the data contained in the message and write to the output stream
-		message.encapsulate();
 		try {
-			outStream.flush();
+			BufferedReader inFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			outStream.write(message.encapsulate());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,15 +48,24 @@ public class Connection {
 
 	public Message receive() {
 
-		Message message;
-		byte[] recvbuf;
+		Message message = null;
+		byte[] recvbuf = null;
 
 		// TODO
 		// read a segment from the input stream and decapsulate into message
-
-		if (true) {
-			throw new RuntimeException("not yet implemented");
+		try {
+			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			recvbuf = inFromClient.readLine().getBytes();
+			message.decapsulate(recvbuf);
+//			outStream.writeBytes(message);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+//		if (true) {
+//			throw new RuntimeException("not yet implemented");
+//		}
 
 		return message;
 

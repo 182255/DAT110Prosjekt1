@@ -31,10 +31,6 @@ public class Message {
 			encoded[i + 1] = payload[i];
 		}
 
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
-
 		return encoded;
 
 	}
@@ -43,12 +39,10 @@ public class Message {
 
 		// TODO
 		// decapsulate data in received and put in payload
-		payload = new byte[received.length];
-		payload[0] = (byte) received.length;
-		for (int i = 1; i < received.length; i++) {
-			payload[i] = received[i];
+		payload = new byte[received[0]];
+		for (int i = 0; i < payload.length; i++) {
+			payload[i] = received[i + 1];
 		}
-//		throw new RuntimeException("not yet implemented");
 
 	}
 }
