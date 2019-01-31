@@ -37,7 +37,7 @@ public class RPCServer {
 		while (!stop) {
 	    
 		   int rpcid;
-		   
+		   services.get(connection).invoke(request);
 		   // TODO
 		   // - receive message containing RPC request
 		   // - find the identifier for the RPC methods to invoke
