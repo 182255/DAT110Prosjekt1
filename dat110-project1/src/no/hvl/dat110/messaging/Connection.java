@@ -35,37 +35,29 @@ public class Connection {
 		// TODO
 		// encapsulate the data contained in the message and write to the output stream
 		try {
-			BufferedReader inFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			outStream.write(message.encapsulate());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-//		throw new RuntimeException("not yet implemented");
-
-	}
-
-	public Message receive() {
-
-		Message message = null;
-		byte[] recvbuf = null;
-
-		// TODO
-		// read a segment from the input stream and decapsulate into message
-		try {
-			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			recvbuf = inFromClient.readLine().getBytes();
-			message.decapsulate(recvbuf);
-//			outStream.writeBytes(message);
+			outStream.write(message.encapsulate(), 0, 128);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
+	}
+
+	
+	public Message receive() {
+
+		byte[] recvbuf = new byte[128];
+		Message message = new Message();
+
+		// TODO
+		// read a segment from the input stream and decapsulate into message
+		try {
+			inStream.read(recvbuf, 0, 128);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		message.decapsulate(recvbuf);
 
 		return message;
 

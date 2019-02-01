@@ -1,9 +1,6 @@
 package no.hvl.dat110.messaging;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -35,23 +32,11 @@ public class MessagingServer {
 		try {
 			connectSocket = welcomeSocket.accept();
 			connection = new Connection(connectSocket);
-			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectSocket.getInputStream()));
-			DataOutputStream outToClient = new DataOutputStream(connectSocket.getOutputStream());
-			
-			inFromClient.readLine();
-			outToClient.flush();
-			outToClient.close();
-			inFromClient.close();
-//			connectSocket.close();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
 
 		return connection;
 

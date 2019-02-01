@@ -1,8 +1,5 @@
 package no.hvl.dat110.messaging;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class MessagingClient {
@@ -26,18 +23,11 @@ public class MessagingClient {
 
 		try {
 			clientSocket = new Socket(server, port);
-			connection = new Connection(clientSocket);	
-//			DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-//			BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-			
+			connection = new Connection(clientSocket);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
 
 		return connection;
 	}
