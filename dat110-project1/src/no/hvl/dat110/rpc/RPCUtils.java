@@ -1,6 +1,6 @@
 package no.hvl.dat110.rpc;
 
-import java.util.Arrays;
+import java.nio.ByteBuffer;
 
 public class RPCUtils {
 
@@ -8,45 +8,26 @@ public class RPCUtils {
 
 		byte[] encoded = new byte[str.length()];
 
+		// TODO: marshall RPC identifier and string into byte array
 		encoded[0] = rpcid;
-		for (int i = 1; i < str.length() - 1; i++) {
+		for (int i = 0; i < str.length(); i++) {
 			encoded[i] = (byte) str.charAt(i);
 		}
-
-		// TODO: marshall RPC identifier and string into byte array
-
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
 
 		return encoded;
 	}
 
 	public static String unmarshallString(byte[] data) {
 
-		String decoded = null;
-
-		// TODO: unmarshall String contained in data into decoded
-		for (int i = 1; i < data.length; i++) {
-//			data[i]
-		}
-
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
-
+		String decoded = new String(data);
 		return decoded;
 	}
 
 	public static byte[] marshallVoid(byte rpcid) {
 
-		byte[] encoded;
-
+		byte[] encoded = new byte[128];
 		// TODO: marshall RPC identifier in case of void type
-
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
+		encoded[0] = rpcid;
 
 		return encoded;
 
@@ -80,14 +61,9 @@ public class RPCUtils {
 
 	public static byte[] marshallInteger(byte rpcid, int x) {
 
-		byte[] encoded;
-
 		// TODO: marshall RPC identifier and string into byte array
-
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
-
+		byte[] encoded = new byte[4];
+		encoded = ByteBuffer.allocate(4).putInt(x).array();
 		return encoded;
 	}
 
@@ -97,9 +73,7 @@ public class RPCUtils {
 
 		// TODO: unmarshall integer contained in data
 
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
+		decoded = ByteBuffer.wrap(data).getInt();
 
 		return decoded;
 
