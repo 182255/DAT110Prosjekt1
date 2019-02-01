@@ -7,7 +7,6 @@ import java.net.Socket;
 public class MessagingServer {
 
 	private ServerSocket welcomeSocket;
-	private Socket connectSocket;
 
 	public MessagingServer(int port) {
 
@@ -30,7 +29,7 @@ public class MessagingServer {
 		// TODO
 		// accept TCP connection on welcome socket and create connection
 		try {
-			connectSocket = welcomeSocket.accept();
+			Socket connectSocket = welcomeSocket.accept();
 			connection = new Connection(connectSocket);
 			
 		} catch (IOException e) {
