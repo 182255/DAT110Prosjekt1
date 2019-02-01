@@ -1,16 +1,15 @@
 package no.hvl.dat110.rpc;
 
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 public class RPCUtils {
 
 	public static byte[] marshallString(byte rpcid, String str) {
 
-		byte[] encoded = new byte[str.length()];
-
-		// TODO: marshall RPC identifier and string into byte array
+		byte[] encoded = new byte[str.length() + 1];
 		encoded[0] = rpcid;
-		for (int i = 0; i < encoded.length; i++) {
+		for (int i = 0; i < str.length(); i++) {
 			encoded[i + 1] = (byte) str.charAt(i);
 		}
 
@@ -19,7 +18,7 @@ public class RPCUtils {
 
 	public static String unmarshallString(byte[] data) {
 
-		String decoded = new String(data);
+		String decoded = new String(Arrays.copyOfRange(data, 1,data.length));
 		return decoded;
 	}
 
@@ -36,6 +35,7 @@ public class RPCUtils {
 	public static void unmarshallVoid(byte[] data) {
 
 		// TODO: unmarshall void type
+		return;
 	}
 
 	public static byte[] marshallBoolean(byte rpcid, boolean b) {
