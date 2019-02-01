@@ -18,14 +18,14 @@ public class RPCUtils {
 
 	public static String unmarshallString(byte[] data) {
 
-		String decoded = new String(Arrays.copyOfRange(data, 1,data.length));
+		String decoded = new String(Arrays.copyOfRange(data, 1, data.length));
 		return decoded;
 	}
 
 	public static byte[] marshallVoid(byte rpcid) {
 
-		byte[] encoded = new byte[128];
-		// TODO: marshall RPC identifier in case of void type
+		byte[] encoded = new byte[1];
+
 		encoded[0] = rpcid;
 
 		return encoded;
