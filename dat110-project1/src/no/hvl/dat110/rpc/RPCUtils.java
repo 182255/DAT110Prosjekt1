@@ -11,7 +11,7 @@ public class RPCUtils {
 		// TODO: marshall RPC identifier and string into byte array
 		encoded[0] = rpcid;
 		for (int i = 0; i < encoded.length; i++) {
-			encoded[i] = (byte) str.charAt(i);
+			encoded[i + 1] = (byte) str.charAt(i);
 		}
 
 		return encoded;
