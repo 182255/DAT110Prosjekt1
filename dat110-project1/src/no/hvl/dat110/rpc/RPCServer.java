@@ -47,6 +47,7 @@ public class RPCServer {
 			// - send back message containing RPC reply
 			int rpcid = request[0];
 			RPCImpl impl = services.get(rpcid);
+			RPCUtils.unmarshallVoid(request);
 			byte[] b = impl.invoke(request);
 			Message reply = new Message(b);
 
