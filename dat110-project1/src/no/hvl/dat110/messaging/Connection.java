@@ -35,7 +35,7 @@ public class Connection {
 		// TODO
 		// encapsulate the data contained in the message and write to the output stream
 		try {
-			outStream.write(message.encapsulate(), 0, 128);
+			outStream.write(message.encapsulate(), 0, 127);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -52,7 +52,7 @@ public class Connection {
 		// TODO
 		// read a segment from the input stream and decapsulate into message
 		try {
-			inStream.read(recvbuf, 0, 128);
+			inStream.read(recvbuf, 0, 127);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
