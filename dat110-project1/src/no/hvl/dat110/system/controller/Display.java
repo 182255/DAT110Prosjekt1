@@ -27,6 +27,5 @@ public class Display extends RPCStub {
 		display.invoke(rpcrequest);
 		String temp = RPCUtils.unmarshallString(rpcrequest);
 		System.out.println("Temperature: " + temp);
-//		throw new RuntimeException("not yet implemented");
 	}
 }
