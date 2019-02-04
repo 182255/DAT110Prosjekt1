@@ -8,11 +8,6 @@ import no.hvl.dat110.system.display.DisplayImpl;
 public class Display extends RPCStub {
 
 	private byte RPCID = 1;
-	private RPCClient client;
-	
-	public Display(RPCClient client) {
-		this.client = client;
-	}
 
 	public Display() {
 		// TODO Auto-generated constructor stub

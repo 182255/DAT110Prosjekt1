@@ -8,10 +8,8 @@ import no.hvl.dat110.system.sensor.SensorImpl;
 public class Sensor extends RPCStub {
 
 	private byte RPCID = 1;
-	private RPCClient client;
-
-	public Sensor(RPCClient client) {
-		this.client = client;
+	public Sensor() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int read() {
