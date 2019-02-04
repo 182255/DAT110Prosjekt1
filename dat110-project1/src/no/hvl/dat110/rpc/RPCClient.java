@@ -38,8 +38,8 @@ public class RPCClient {
 
 		byte[] rpcreply;
 		
-//		Message request = new Message(rpcrequest);
-		connection.send(new Message(rpcrequest));
+		Message request = new Message(rpcrequest);
+		connection.send(request);
 		rpcreply = connection.receive().getData();
 
 		/*
