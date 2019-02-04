@@ -18,14 +18,7 @@ public class DisplayDevice {
 		RPCServer displayserver = new RPCServer(Common.DISPLAYPORT);
 		
 		displayserver.register(1, display);
-		
-//		try {
-//			Thread.sleep(1000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
+
 		displayserver.run();
 		
 		displayserver.stop();

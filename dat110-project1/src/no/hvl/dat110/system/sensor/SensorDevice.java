@@ -1,4 +1,4 @@
-package no.hvl.dat110.system.sensor;
+	package no.hvl.dat110.system.sensor;
 
 import no.hvl.dat110.rpc.RPCServer;
 import no.hvl.dat110.system.controller.Common;
@@ -14,12 +14,6 @@ public class SensorDevice {
 		RPCServer sensorserver = new RPCServer(Common.SENSORPORT);
 		
 	    sensorserver.register(1,sensor);
-	    
-//	    try {
-//	    	Thread.sleep(1000);
-//	    } catch (Exception e) {
-//	    	System.out.println("interrupt");
-//	    }
 		
 		sensorserver.run();
 		
