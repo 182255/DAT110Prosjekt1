@@ -37,9 +37,9 @@ public class RPCClient {
 	public byte[] call(byte[] rpcrequest) {
 
 		byte[] rpcreply;
-
-		Message request = new Message(rpcrequest);
-		connection.send(request);
+		
+//		Message request = new Message(rpcrequest);
+		connection.send(new Message(rpcrequest));
 		rpcreply = connection.receive().getData();
 
 		/*
@@ -53,9 +53,6 @@ public class RPCClient {
 		 * 
 		 */
 
-//		if (true) {
-//			throw new RuntimeException("not yet implemented");
-//		}
 
 		return rpcreply;
 
