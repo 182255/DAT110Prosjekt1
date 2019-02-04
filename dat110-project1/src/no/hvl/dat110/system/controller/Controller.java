@@ -27,10 +27,14 @@ public class Controller  {
 		// create RPC clients for display device and sensor device
 		// register RPC methods in the RPC layer
 		
-		display = new Display(displayclient);
-		sensor = new Sensor(sensorclient);
-		stopdisplay.register(displayclient);
-		stopsensor.register(sensorclient);
+		display = new Display();
+		sensor = new Sensor();
+		
+		displayclient.connect();
+		sensorclient.connect();
+		
+		display.register(displayclient);
+		sensor.register(sensorclient);
 		
 		// register stop methods in the RPC middleware
 		displayclient.register(stopdisplay);
