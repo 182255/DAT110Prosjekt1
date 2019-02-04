@@ -13,10 +13,22 @@ public class DisplayDevice {
 		// TODO
 		// implement the operation of the display RPC server
 		// see how this is done for the sensor RPC server in SensorDevice
+		DisplayImpl display = new DisplayImpl();
 		
-		if (true) {
-			  throw new RuntimeException("not yet implemented");
-		}
+		RPCServer displayserver = new RPCServer(Common.DISPLAYPORT);
+		
+		displayserver.register(1, display);
+		
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		displayserver.run();
+		
+		displayserver.stop();
 		
 		System.out.println("Display server stopping ...");
 		

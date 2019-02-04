@@ -14,6 +14,12 @@ public class SensorDevice {
 		RPCServer sensorserver = new RPCServer(Common.SENSORPORT);
 		
 	    sensorserver.register(1,sensor);
+	    
+//	    try {
+//	    	Thread.sleep(1000);
+//	    } catch (Exception e) {
+//	    	System.out.println("interrupt");
+//	    }
 		
 		sensorserver.run();
 		

@@ -38,10 +38,12 @@ public class Controller  {
 		
 		// TODO:
 		// loop while reading from sensor and write to display via RPC
-		
-		if (true) {
-			  throw new RuntimeException("not yet implemented");
-			}
+		int i = 0;
+		while(i < N) {
+			int temp = sensor.read();
+			display.write(String.valueOf(temp));
+			i++;
+		}
 		
 		stopdisplay.stop();
 		stopsensor.stop();
