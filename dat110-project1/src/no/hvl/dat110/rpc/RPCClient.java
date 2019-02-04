@@ -28,7 +28,7 @@ public class RPCClient {
 	public void disconnect() {
 
 		// TODO: disconnect/close the underlying messaging connection
-		msgclient.connect().close();
+		msgclient.disconnect();
 
 		// throw new RuntimeException("not yet implemented");
 
@@ -52,9 +52,9 @@ public class RPCClient {
 		 * 
 		 */
 
-		if (true) {
-			throw new RuntimeException("not yet implemented");
-		}
+//		if (true) {
+//			throw new RuntimeException("not yet implemented");
+//		}
 
 		return rpcreply;
 
